@@ -6,4 +6,8 @@ FROM alpine:3.14
 
 COPY --from=build /usr/bin/caddy-l4 /usr/bin/caddy-l4
 
+LABEL org.opencontainers.image.title=caddy-l4
+LABEL org.opencontainers.image.licenses=MIT
+LABEL org.opencontainers.image.source="https://github.com/ghthor/caddy-l4-docker"
+
 CMD ["/usr/bin/caddy-l4", "run", "-config", "/Caddyfile.json"]
