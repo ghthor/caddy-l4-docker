@@ -1,0 +1,32 @@
+{
+  "apps": {
+    "layer4": {
+      "servers": {
+        "tcp": {
+          "listen": ["tcp/0.0.0.0:38483"],
+          "routes": [{
+            "handle": [{
+              "handler": "proxy",
+              "proxy_protocol": "v1",
+              "upstreams": [
+                {"dial": ["tcp/localhost:20202"]}
+              ]
+            }]
+          }]
+        },
+        "udp": {
+          "listen": ["udp/0.0.0.0:38483"],
+          "routes": [{
+            "handle": [{
+              "handler": "proxy",
+              "proxy_protocol": "v1",
+              "upstreams": [
+                {"dial": ["udp/localhost:20202"]}
+              ]
+            }]
+          }]
+        }
+      }
+    }
+  }
+}
