@@ -1,6 +1,7 @@
 .PHONY: build
+BUILD_CMD ?=build
 build: Dockerfile
-	docker build . --file Dockerfile --tag ghthor/caddy-l4:latest
+	docker $(BUILD_CMD) . --file Dockerfile --tag ghthor/caddy-l4:latest
 
 .PHONY: tag
 tag:
